@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Teko:wght@300..700&display=swap');
+
+
+/* Lato Font Family */
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Teko Font Family */
+.teko-regular {
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Desktop Wireframe (Default)
+  -------------------------
+  Note: All spacings are as indicated from the specification, except for certain paddings, heights and widths are adjusted to look more
+  like the wireframe. Flexbox is used in the navigation, and to adjust images to containers. Anything else is divided into grids.
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  background-color: #070410;
+  color: #070410;
+}
+
+img {
+  object-fit: cover;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+button {
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+  background-color: #ffffff;
+  color: #070410;
+  padding: 16px;
+  border-radius: 16px;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(219, 219, 219);
+}
+
+/* Navigation bar */
+.navigation {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-inline: 16px;
+  grid-row: 1/2;
+  background-color: #231561;
+  color: white;
+  display: flex; 
+  flex-direction: row;
+/* Without align-items, the genre options won't be vertically aligned, so this sets these elements equally*/
+  align-items: baseline;
+  gap: 16px;
+  box-shadow: 0 10px 0px 0px #4DCCBD;
+}
+
+#logo {
+  font-family: "Teko", sans-serif;
+  padding-left: 48px;
+  font-size: 3em;
+}
+
+.genres {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2.5;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  top: -10%;
+}
+
+#genre1 {
+  grid-column: 1/2;
+  padding-right: 16px;
+}
+
+#genre2 {
+  grid-column: 2/3;
+  padding-right: 16px;
+}
+
+#genre3 {
+  grid-column: 3/4;
+  padding-right: 16px;
+}
+
+#genre3 {
+  grid-column: 4/5;
+  padding-right: 16px;
+}
+
+#search {
+  flex-grow: 0.4;
+  padding: 5px 16px 5px 16px;
+}
+
+/* Main content container, including all the movies. */
+.maincontent {
+  display: grid;
+  grid-template-rows: 450px 800px 450px 450px 450px 10px;
+  grid-template-columns: repeat(2,1fr);
+  row-gap: 48px;
+  column-gap: 48px;
+  padding-inline: 48px;
+  margin-top: 48px;
+  grid-row: 2/4;
+  max-width: 900px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Movie box containers, all are specified to have small type spacings.
+Note: To make styling more efficient, the classes that require the same properties are called normally but separated with commas
+I learned this in the second part.
+*/
+.mov1, .mov2, .mov3, .mov4, .mov5, .mov6 {
+  font-size: 1.5em;
+  display: grid;
+  background-color: #EEF36A;
+  box-shadow: 16px 16px #4DCCBD;
+  text-align: center;
+  align-items: center;
+  height: 450px;
+}
+
+.mov1, .mov4, .mov5, .mov6 {
+  grid-column: 1/3;
+}
+
+.info1, .info2, .info3, .info4, .info5, .info6 {
+  grid-area: info;
+  text-align: left;
+  padding-inline: 16px;
+  align-self:first baseline;
+}
+
+.info1, .info4, .info5, .info6 {
+  margin-top: 16px;
+}
+
+#button1, #button2, #button3, #button4, #button5, #button6 {
+  grid-area: button;
+  background-color: #070410;
+  color: white;
+}
+
+#button2, #button3, #button4, #button5, #button6 {
+  margin: 16px;
+}
+
+.img1, .img2, .img3, .img4, .img5, .img6 {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+/* To add spaces inbetween areas in grid-template-areas, a dot is added to ascertain the 'space' */
+.mov1 {
+  grid-template-rows: 1fr 16px 1fr;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-areas:
+  "image image image"
+  ". . button"
+  "info info button";
+}
+
+#button1 {
+  margin-right: 16px;
+  object-fit: cover;
+  padding: .75em;
+  width: 75%;
+  justify-self: right;
+}
+
+.info1 {
+  width: 100%;
+}
+
+.img1 img {
+  height: 220px;
+}
+
+.mov2, .mov3 {
+  display: grid; 
+  grid-template-rows: 200px 200px 250px 150px;
+  grid-template-columns: none;
+  grid-template-areas: 
+  "image"
+  "image"
+  "info"
+  "button";
+  height: 800px;
+}
+
+.info2, .info3 {
+  padding-top: 16px;
+}
+
+.img2 img, .img3 img {
+  height: 400px;
+}
+
+.mov4, .mov5, .mov6 {
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2,1fr);
+  grid-template-areas: 
+  "image image info info"
+  "image image button button";
+}
+
+.img4 img, .img5 img, .img6 img {
+  height: 450px;
+}
+
+
+/* Tablet Wireframe 
+  ------------------
+  Note: One thing I'd like to point out here is that the blueprint for the movie layouts in Tablet are
+  repeated from the Desktop Wireframe, specifically the unique layouts of both .mov2 and .mov3. Of course
+  margins, paddings and spacings get carried over in the @media screen layouts so in order to rewrite them, a lot
+  of my CSS includes 0 values for properties, this essentially resets what was previously there and responds to the new grids and
+  spacings I create in the @media screens. This can also be seen back in part 1.
+*/
+@media screen and (min-width: 721px) and (max-width: 1024px) {
+
+  #logo {
+    font-size: 2em;
+  }
+
+  .maincontent {
+    grid-template-rows: repeat(3,950px);
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 32px;
+    column-gap: 32px;
+    padding-inline: 32px;
+    margin-top: 32px;
+    max-width: 900px;
+    padding-bottom: 32px;
+  }
+  
+  .mov1, .mov2 {
+    grid-row: 1/2;
+  }
+
+  .mov3, .mov4 {
+    grid-row: 2/3;
+  }
+
+  .mov5, .mov6 {
+    grid-row: 3/4;
+  }
+
+  .mov1, .mov3, .mov5 {
+    grid-column: 1/2;
+  }
+
+  .mov2, .mov4, .mov6 {
+    grid-column: 2/3;
+  }
+
+  .mov1, .mov2, .mov3, .mov4, .mov5, .mov6 {
+    display: grid; 
+    grid-template-rows: 200px 200px 250px 150px 150px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "image image"
+    "image image"
+    "info info"
+    "button button"
+    "button button";
+    height: 950px;
+  }
+  
+  .info1, .info2, .info3, .info4, .info5, .info6 {
+    width: 90%;
+    height: 70%;
+    padding-top: 16px;
+  }
+  
+  .img1 img, .img2 img, .img3 img, .img4 img, .img5 img, .img6 img {
+    height: 400px;
+  }
+
+  /* In order to detect the line skip from the HTML code for 'WATCH NOW' the property 'white-space' is given 'pre-line' */
+  #button1, #button2, #button3, #button4, #button5, #button6 {
+    padding-inline: 16px;
+    margin-right: 0;
+    margin-left: 0;
+    object-fit: cover;
+    padding: .4em;
+    justify-self: center;
+    width: 95%;
+    height: 60%;
+    white-space: pre-line;
+  }
+
+  .info1, .info4, .info5, .info6 {
+    margin-top: 0;
+  }
+
+}
+
+/* Mobile Wireframe
+  ------------------
+Note: Everything here is otherwise copied from tablet, of course with certain changes being the single column movies.
+The genre options from the navigation dissapear from the wireframe, so in order to replicate a similar output, the
+genre ids are called and then set to display: none;. The box shadows in the wireframe are designed in a way that make it like
+there are borders separating each movie, so I had to rewrite the direction of the box shadow and place it underneath each 
+.mov class container.
+*/
+@media screen and (min-width: 360px) and (max-width: 720px) {
+
+  .navigation { box-shadow: 0 16px 0px 0px #4DCCBD; }
+
+  #genre1, #genre2, #genre3, #genre4 { display: none; }
+
+  #logo {
+    font-size: 2em;
+  }
+
+  .maincontent {
+    padding-top: 16px;
+    grid-template-rows: repeat(6,800px);
+    grid-template-columns: auto;
+    row-gap: 16px;
+    column-gap: 0;
+    padding-inline: 0;
+    margin-top: 0;
+    max-width: 900px;
+    padding-bottom: 16px;
+    box-shadow: 0 16px 0px 0px #4DCCBD;
+  }
+
+  .mov1 { grid-row: 1/2;}
+  .mov2 { grid-row: 2/3;}
+  .mov3 { grid-row: 3/4;}
+  .mov4 { grid-row: 4/5;}
+  .mov5 { grid-row: 5/6;}
+
+  .mov1, .mov2, .mov3, .mov4, .mov5, .mov6 {
+    box-shadow: 0 16px 0px 0px #4DCCBD;
+    grid-column: 1/2;
+    display: grid; 
+    grid-template-rows: 200px 200px 200px 100px 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "image image"
+    "image image"
+    "info info"
+    "button button"
+    "button button";
+    height: 800px;
+  }
+  
+  .info1, .info2, .info3, .info4, .info5, .info6 {
+    width: 90%;
+    height: 70%;
+    padding-top: 16px;
+  }
+  
+  .img1 img, .img2 img, .img3 img, .img4 img, .img5 img, .img6 img {
+    height: 400px;
+  }
+
+  /* To prevent the words 'WATCH NOW' from being separated, the line skip is not counted anymore by setting white-space
+  to none; */
+  #button1, #button2, #button3, #button4, #button5, #button6 {
+    padding-inline: 0;
+    margin-right: 0;
+    margin-left: 0;
+    object-fit: cover;
+    padding: .4em;
+    width: 95%;
+    height: 50%;
+    white-space: none;
+    justify-self: center;
+  }
+
+  .info1, .info4, .info5, .info6 {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,828 @@
+/* External Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Protest+Guerrilla&display=swap');
+
+/* The @import url hosts the font for the html file as it's only available online */
+/* The fonts are then made into classes, so they could be called when needed (for headings, paragraph text, etc) */
+.protest-guerrilla-regular {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+.josefin-sans {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* This will rewrite any default values for the entire html document to prevent unwanted padding/margins */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*  (Default) Desktop wireframe
+    ----------------------------
+    Note: I try to keep the spacings between the elements at standard of 50px, with some lesser values
+    being used to adjust the spacing between paragraphs from headings and images (logos, author picture) that 
+    are closer to text boxes. 
+*/
+body {
+    background-color: #e9e9e9;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+h1 {
+    font-size: 110px;
+    padding-top: 50px;
+    font-family: "Protest Guerrilla", sans-serif;
+}
+
+h2 {
+    font-size: 51px;
+    font-family: "Protest Guerrilla", sans-serif;
+}
+
+p {
+    font-size: 17px;
+    padding-bottom: 20px;
+}
+
+.navigation {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    padding: 50px;
+}
+
+#bar1 {
+    grid-column: 2/3;
+}
+
+#bar2 {
+    grid-column: 3/4;
+}
+
+#bar3 {
+    grid-column: 4/5;
+}
+
+#logo {
+    width: 200px;
+    height: 200px;
+    padding-top: 50px;
+}
+
+/* To prevent any of the main sections of content from breaking apart, they are arranged in an grid layout 
+where if grid-area is assigned with the appropriate name, it will respond to the layout given by the grid-template-areas*/
+.maincontent {
+    align-items: center;
+    display: grid;
+    background-color: white;
+    text-align: left;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-inline: 50px;
+    grid-template-rows: repeat(5,auto);
+    grid-template-areas: 
+    "heading"
+    "body"
+    "images"
+    "author"
+    "footer";
+}
+
+.heading {
+    grid-area: heading;
+}
+
+/* First paragraph is larger than the other paragraphs in the website */
+#firstpara {
+    font-size: 20px;
+}
+
+/* Headings with their column sections*/
+.body {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    grid-area: body;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 15px;
+}
+
+/* Keeping the headings title with padding at the bottom to make spacing better */
+#headings {
+    padding-bottom: 20px;
+}
+
+.column1 {
+    grid-column: 1/2;
+}
+
+.column2 {
+    grid-column: 2/3;
+}
+
+.column3 {
+    grid-column: 3/4;
+}
+
+/* For the images to cover the '.maincontent' div class (like the wireframe), the margins and inline padding are subtracted */
+.images {
+    grid-area: images;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: repeat(2,auto);
+    grid-template-areas: 
+    "mainimg mainimg img1 img2"
+    "mainimg mainimg img3 img4";
+    padding-bottom: 50px;
+    padding-inline: -50px;
+    margin-left: -50px;
+    margin-right: -50px;
+}
+
+/* Setting every img tag with these properties to prevent unneccessary stretching of the images within the containers they fill */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainimage {
+    grid-area: mainimg;
+}
+
+.topleftimage {
+    grid-area: img1;
+}
+
+.toprightimage {
+    grid-area: img2;
+}
+
+.botlefttimage {
+    grid-area: img3;
+}
+
+.botrightimage {
+    grid-area: img4;
+}
+
+/* Like the navigation bar, this kind of grid uses the grid-column/row to assign areas using numbers
+I used it specifically for this case to help divide the complicated layout of the author info*/
+.author {
+    grid-area: author;
+    display: grid;
+    grid-template-rows: 100px 200px;
+    grid-template-columns: auto 400px 200px auto;
+    padding-inline: 50px;
+}
+
+#authorheading {
+    text-align: center;
+    padding: 25px;
+    grid-column: 2/3;
+}
+
+#authorinfo {
+    text-align: left;
+    padding: 10px;
+    grid-column: 2/3;
+    padding-inline: 20px;
+}
+
+#authorpic {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 50%;
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+    font-size: 20px;
+    background-color: #14181d;
+    color: white;
+    padding: 50px;
+    margin-left: -50px;
+    margin-right: -50px;
+}
+
+/* Large Mobile Wireframe 
+   (When window screen is above/is 541px and below/is 720px it will change the layout)
+   ----------------------
+   Note: Everything is structured in a similar way to how a defaulted website looks, without all the css properties and attributes. 
+   It's difficult, having to overwrite a lot of the initial properties created for the Desktop version. This includes
+   things like margins and padding, if not careful it could make the content move outside of the .maincontent class.
+*/
+@media screen and (min-width: 541px) and (max-width: 720px) {
+
+    body {
+        text-align: center;
+        font-family: "Josefin Sans", sans-serif;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+    
+    
+    h1 {
+        text-align: center;
+        font-size: 60px;
+        font-family: "Protest Guerrilla", sans-serif;
+        padding: 0;
+        padding-top: 20px;
+        margin: 0;
+    }
+    
+    
+    h2 {
+        font-size: 60px;
+        text-align: center;
+        font-family: "Protest Guerrilla", sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+    
+    p {
+        font-size: 20px;
+        padding-bottom: 30px;
+    }
+    
+    .navigation {
+        display: grid;
+        text-align: center;
+        grid-template-columns: auto auto auto auto auto;
+        column-gap: 20px;
+        padding: 0;
+    }
+    
+    
+    #bar1 {
+        grid-column: 2/3;
+        font-size: 15px;
+        
+    }
+    
+    #bar2 {
+        grid-column: 3/4;
+        font-size: 15px;
+    }
+    
+    #bar3 {
+        grid-column: 4/5;
+        font-size: 15px;
+    }
+    
+    #logo {
+        width: 80px;
+        height: 80px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    /* Margin resets for maincontent since the wireframe has a lack of borders to the right, showing that it has to 
+    fill up the entire html viewport width. */
+    .maincontent {
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+        display: grid;
+        background-color: rgb(255, 255, 255);
+        text-align: left;
+        padding-inline: 20px;
+        grid-template-rows: repeat(5,auto);
+        row-gap: 20px;
+        grid-template-areas: 
+        "heading"
+        "body"
+        "images"
+        "author"
+        "footer";
+    }
+    
+    .heading {
+        grid-area: heading;
+    }
+    
+    #firstpara {
+        font-size: 20px;
+        padding: 0;
+    }
+    
+    .body {
+        grid-area: body;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: left;
+        display: grid;
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: none;
+    }
+    
+    #headings {
+        font-size: 55px;
+        padding-bottom: 20px;
+    }
+    
+    .column1 {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    
+    .column2 {
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    
+    .column3 {
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    
+    .images {
+        grid-area: images;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(5,auto);
+        grid-template-areas: 
+        "mainimg"
+        "img1"
+        "img2"
+        "img3"
+        "img4";
+        padding-bottom: 20px;
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .mainimage {
+        grid-area: mainimg;
+    }
+    
+    .topleftimage {
+        grid-area: img1;
+    }
+    
+    .toprightimage {
+        grid-area: img2;
+    }
+    
+    .botlefttimage {
+        grid-area: img3;
+    }
+    
+    .botrightimage {
+        grid-area: img4;
+    }
+    
+    .author {
+        grid-area: author;
+        display: grid;
+        grid-template-rows: repeat(4,auto);
+        grid-template-columns: none;
+        text-align: center;
+    }
+    
+    #authorheading {
+        padding: 20px;
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    
+    #authorinfo {
+        text-align: left;
+        padding-bottom: 30px;
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    
+    #authorpic {
+        display: block;
+        border-radius: 50%;
+        width: 320px;
+        height: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    
+    .footer {
+        grid-area: footer;
+        text-align: center;
+        font-size: 20px;
+        background-color: #14181d;
+        color: white;
+        padding: 50px;
+        margin-left: -20px;
+        margin-right: -20px;
+    }    
+}
+
+/* Small Mobile Wireframe 
+   (When window screen is above/is 360px and below/is 540px it will change the layout)
+   ----------------------
+   Note: There's not much difference here compared to the Large Mobile Wireframe, a few simple changes
+   here and there (like the text box area of the second heading) including the standard spacing (12px) and smaller font sizes.
+*/
+@media screen and (min-width: 360px) and (max-width: 540px) {
+
+    h1 {
+        font-size: 55px;
+    }
+
+    h2 {
+        margin: auto;
+        align-items: center;
+        font-size: 55px;
+        width: 75%;
+    }
+
+    #headings { 
+        display: block;
+        text-align: center;
+        font-size: 60px;
+    }
+
+    body {
+        text-align: center;
+        overflow-x: hidden;
+    }
+    
+    p {
+        font-size: 17px;
+        padding-bottom: 30px;
+        text-align: left;
+    }
+    
+    .navigation {
+        display: grid;
+        text-align: center;
+        grid-template-columns: auto 1fr 1fr 1fr auto;
+        column-gap: 15px;
+        padding-top: 12px;
+        padding-bottom: 0;
+        margin: 0;
+    }
+    
+    #bar1 {
+        text-align: center;
+        grid-column: 2/3;
+        font-size: 13px;
+        
+    }
+    
+    #bar2 {
+        text-align: center;
+        grid-column: 3/4;
+        font-size: 13px;
+    }
+    
+    #bar3 {
+        text-align: center;
+        grid-column: 4/5;
+        font-size: 13px;
+    }
+    
+    #logo {
+        width: 80px;
+        height: 80px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    
+    .maincontent {
+        margin-left: 0;
+        margin-right: 0;
+        display: grid;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        padding-inline: 12px;
+        grid-template-rows: repeat(5,auto);
+        row-gap: 20px;
+        grid-template-areas: 
+        "heading"
+        "body"
+        "images"
+        "author"
+        "footer";
+    }
+    
+    .heading {
+        grid-area: heading;
+    }
+    
+    #firstpara {
+        font-size: 17px;
+        padding: 0;
+    }
+    
+    .body {
+        grid-area: body;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: left;
+        display: grid;
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: none;
+    }
+    
+    #headings {
+        font-size: 55px;
+        padding-bottom: 20px;
+    }
+    
+    .column1 {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    
+    .column2 {
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    
+    .column3 {
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    
+    .images {
+        grid-area: images;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(5,auto);
+        grid-template-areas: 
+        "mainimg"
+        "img1"
+        "img2"
+        "img3"
+        "img4";
+        padding-bottom: 20px;
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .mainimage {
+        grid-area: mainimg;
+    }
+    
+    .topleftimage {
+        grid-area: img1;
+    }
+    
+    .toprightimage {
+        grid-area: img2;
+    }
+    
+    .botlefttimage {
+        grid-area: img3;
+    }
+    
+    .botrightimage {
+        grid-area: img4;
+    }
+    
+    .author {
+        grid-area: author;
+        display: grid;
+        grid-template-rows: repeat(4,auto);
+        grid-template-columns: none;
+        text-align: center;
+    }
+    
+    #authorheading {
+        padding: 20px;
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    
+    #authorinfo {
+        text-align: left;
+        padding-bottom: 30px;
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    
+    #authorpic {
+        display: block;
+        border-radius: 50%;
+        width: 320px;
+        height: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    
+    .footer {
+        grid-area: footer;
+        text-align: center;
+        font-size: 20px;
+        background-color: #14181d;
+        color: white;
+        padding: 50px;
+        margin-left: -20px;
+        margin-right: -20px;
+    }    
+}
+
+/* Tablet Wireframe 
+   (When window screen is above/is 721px and below/is 1024px it will change the layout)
+   ----------------
+   Note: H1 font size is different from H2 font size in order for the website to match with the tablet wireframe's. 
+   I tried to stick to the 30px standard spacing as best as possible. Logo is 80px and author pic is the same size
+   as the desktop version.
+*/
+@media screen and (min-width: 721px) and (max-width: 1024px) {
+
+    body {
+        text-align: center;
+        font-family: "Josefin Sans", sans-serif;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 75px;
+        padding-top: 30px;
+        font-family: "Protest Guerrilla", sans-serif;
+    }
+    
+    h2 {
+        text-align: center;
+        font-size: 70px;
+        font-family: "Protest Guerrilla", sans-serif;
+    }
+    
+    p {
+        font-size: 25px;
+        padding-bottom: 30px;
+    }
+    
+    .navigation {
+        display: grid;
+        grid-template-columns: 30px 1fr 1fr 1fr 30px;
+        padding: 30px;
+    }
+    
+    #firstpara {
+        font-size: 25px;
+    }
+    
+    #headings {
+        font-size: 70px;
+        padding-bottom: 25px;
+    }
+    
+    #bar1 {
+        grid-column: 2/3;
+    }
+    
+    #bar2 {
+        grid-column: 3/4;
+    }
+    
+    #bar3 {
+        grid-column: 4/5;
+    }
+    
+    #logo {
+        width: 80px;
+        height: 80px;
+        padding-top: 30px;
+    }
+    
+    .maincontent {
+        align-items: center;
+        display: grid;
+        background-color: white;
+        text-align: left;
+        margin-left: 90px;
+        margin-right: 90px;
+        padding-inline: 40px;
+        grid-template-rows: repeat(5,auto);
+        grid-template-areas: 
+        "heading"
+        "body"
+        "images"
+        "author"
+        "footer";
+    }
+    
+    .heading {
+        grid-area: heading;
+    }
+    
+    .body {
+        grid-area: body;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: left;
+        display: grid;
+        grid-template-columns: none;
+    }
+    
+    .column1 {
+        grid-column: 1/2;
+    }
+    
+    .column2 {
+        grid-column: 1/2;
+    }
+    
+    .column3 {
+        grid-column: 1/2;
+    }
+    
+    .images {
+        grid-area: images;
+        margin-left: -40px;
+        margin-right: -40px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas: 
+        "mainimg img1"
+        "img2 img3";
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .mainimage {
+        grid-area: mainimg;
+    }
+    
+    .topleftimage {
+        grid-area: img1;
+    }
+    
+    .toprightimage {
+        grid-area: img2;
+    }
+    
+    .botlefttimage {
+        grid-area: img3;
+    }
+    
+    .botrightimage {
+        grid-area: img4;
+        display: none;
+    }
+    
+    .author {
+        grid-area: author;
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: repeat(4, auto);
+        padding-inline: 30px;
+        padding-bottom: 30px;
+    }
+    
+    #authorheading {
+        text-align: center;
+        padding: 10px;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    
+    #authorinfo {
+        text-align: left;
+        padding: 0;
+        padding-inline: 20px;
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    
+    #authorpic {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        border-radius: 50%;
+        grid-column: 3/4;
+        grid-row: 1/3;
+    }
+}
