@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GRID</title>
+        <style>
+            .container {
+                display: grid;
+                background-image: url("tenyears.jpg");
+                background-size: cover;
+                
+                grid-template-rows: 200px 200px;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+
+            }
+
+            .item1{
+                padding: 10px;
+                grid-column: 1 / 2;
+                background-color: #264653;
+            }
+
+            .item2{
+                padding: 10px;
+                background-color: #2a9d8f;
+            }
+
+            .item3{
+                padding: 10px;
+                background-color: #8ab17d;
+            }
+
+            .item4{
+                padding: 10px;
+                background-color: #e9c46a ;
+            }
+
+            .item5{
+                padding: 10px;
+                background-color: #f4a261;
+            }
+
+            .item6{
+                padding: 10px;
+                grid-row: 1 / 2;
+                background-color: #e76f51;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class = "container">
+
+            <div class = "item1">
+                <h1>ITEM 1</h1>
+
+            </div>
+
+            <div class = "item2">
+                <h1>ITEM 2</h1>
+
+
+            </div>
+
+            <div class = "item3">
+                <h1>ITEM 3</h1>
+
+            </div>
+
+            <div class = "item4">
+                <h1>ITEM 4</h1>
+
+            </div>
+
+            <div class = "item5">
+                <h1>ITEM 5</h1>
+                
+            </div>
+
+            <div class = "item6">
+                <h1>ITEM 6</h1>
+                
+            </div>
+        </div>
+    </body>
+</html>

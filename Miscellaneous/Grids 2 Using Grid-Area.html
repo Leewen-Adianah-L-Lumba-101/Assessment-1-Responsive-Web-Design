@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GRID 2</title>
+        <style>
+
+            .container {
+                display: grid;
+                background-color: rgb(198, 233, 220);
+                grid-template-columns: repeat(5,fr);
+                grid-template-rows: auto auto auto auto auto;
+                grid-template-areas:
+                 "header header header header"
+                 "sidebar main main main"
+                 "sidebar content1 content2 content3"
+                 "footer footer footer footer";
+            }
+            
+            .item1 {
+                grid-area: header;
+                height: 100px;
+                background-color: rgb(102, 66, 121);
+            }
+
+            .item2 {
+                grid-area: sidebar;
+                background-color: rgb(66, 121, 101);
+            }
+
+            .item3 { /* Main Content */
+                grid-area: main;
+                height: 250px;
+                background-color: rgb(70, 121, 66);
+            }
+
+            .item4 {
+                grid-area: content1;
+                height: 230px;
+                background-color: rgb(69, 66, 121);
+            }
+
+            .item5 {
+                grid-area: content2;
+                background-color: rgb(121, 66, 84);
+            }
+
+            .item6 {
+                grid-area: content3;
+                background-color: rgb(118, 66, 121);
+            }
+
+            .item7 {
+                grid-area: footer;
+                height: 120px;
+                background-color: rgb(241, 153, 153);
+            }
+
+            @media screen and (max-width: 600px) {
+                .container {
+                    grid-template-rows: repeat(1,100px);
+                    grid-template-columns: repeat(7,100%);
+                }
+
+                .item1 {
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+                    
+                }
+                
+                .item2 {
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                    
+                }
+
+                .item3 {
+                    grid-column: 1/2;
+                    grid-row: 3/4;
+                    
+                }
+
+                .item4 {
+                    grid-column: 1/2;
+                    grid-row: 4/5;
+                    
+                }
+
+                .item5 {
+                    grid-column: 1/2;
+                    grid-row: 5/6;
+                    
+                }
+                .item6 {
+                    grid-column: 1/2;
+                    grid-row: 6/7;
+                    
+                }
+                .item7 {
+                    grid-column: 1/2;
+                    grid-row: 7/8;
+                    
+                }
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "item1">
+                <h1>header</h1>
+
+            </div>
+
+            <div class = "item2">
+                <h1>sidebar</h1>
+
+            </div>
+
+            <div class = "item3">
+                <h1>maincontent</h1>
+
+            </div>
+
+            <div class = "item4">
+                <h1>content1</h1>
+
+            </div>
+
+            <div class = "item5">
+                <h1>content2</h1>
+
+            </div>
+
+            <div class = "item6">
+                <h1>content3</h1>
+
+            </div>
+
+            <div class = "item7">
+                <h1>footer</h1>
+
+            </div>
+        </div>
+
+    </body>
+</html>
+    
+    <!--Paul's Code-->
+    <!-- <!DOCTYPE html>
+    <html>
+        <head>
+            <title>GRID 2</title>
+            <style>
+
+    body, html {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 100px 1fr 1fr 100px;
+        grid-template-areas:
+        "header header header header"
+        "sidebar main main main"
+        "sidebar con1 con2 con3"
+        "footer footer footer footer";
+        
+    }
+
+    .items {
+        display: grid;
+        font-size: 12px;
+        background-color: rgb(130, 222, 130);
+        border: 1px solid black;
+        padding: 10px;
+        justify-items: center;
+    }
+
+    #item1 {
+        grid-area: header;
+    }
+
+    #item2 {
+        grid-area: sidebar;
+    }
+
+    #item3 {
+        grid-area: main;
+        
+    }
+
+    #item4 {
+        grid-area: con1;
+    
+    }
+
+    #item5 {
+        grid-area: con2;
+        
+    }
+
+    #item6 {
+        grid-area: con3;
+        
+    }
+
+    #item7 {
+        grid-area: footer;
+        
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            height: 100%;
+            display: grid;
+            grid-template-rows: 50px 50px 1fr 1fr 1fr 1fr 50px;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            "header"
+            "sidebar"
+            "main"
+            "con1"
+            "con2"
+            "con3"
+            "footer";
+        }
+    }
+            </style>
+        </head>
+        <body>
+            <div class = "container">
+                <div class = "items">
+                    <div id = "item1"></div>
+                </div>
+
+                <div class = "items">
+                    <div id = "item2"></div>
+                </div>
+
+                <div class = "items">
+                    <div id = "item3"></div>
+                </div>
+
+                <div class = "items">
+                    <div id = "item4"></div>
+                </div>
+
+                <div class = "items">
+                    <div id = "item5"></div>
+                </div>
+
+                <div class = "items">
+                    <div id = "item6"></div>
+                </div>
+
+                <div class = "items">
+                    <div id = "item7"></div>
+                </div>
+            </div>
+
+        </body>
+    </html> -->

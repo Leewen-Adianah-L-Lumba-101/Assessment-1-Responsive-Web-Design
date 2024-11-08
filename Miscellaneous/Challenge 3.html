@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name = "viewport" content = "width = device - width, initial-scale = 1.0">
+        <title>Challenge 3 (Portrait and Landscape)</title>
+        <style>
+
+            body {
+                margin-left: 110px;
+                text-align: center;
+            }
+
+            section {
+                width: 400px;
+                height: 400px;
+                margin: 10px;
+                padding: 10px;
+            }
+
+            img {
+                width: 100px;
+                height: auto;
+                align-items: center;
+            }
+
+            p {
+                margin: 10px;
+                font-size: 25px;
+            }
+
+            .banner {
+                margin-left: -150px;
+                background-color:rgb(160, 175, 255);
+                text-align: center;
+                padding: 25px;
+            }
+
+            @media screen and (min-width: 480px) and (orientation: portrait) {
+            body {
+                background-color: rgb(43, 50, 90);
+                text-align: center;
+            }
+
+            img {
+                display: inline-block;
+            }
+
+            .banner {
+                background-color:rgb(233, 255, 160);
+                height: 150px;
+            }
+
+            section {
+                float: left;
+                display: grid;
+                grid-template-columns: 1fr, 1fr;
+            }
+            }
+
+            @media screen and (min-width: 480px) and (orientation: landscape) {
+            body {
+                background-color: rgb(43, 50, 90);
+                text-align: center;
+            }
+
+            img {
+                display: inline-block;
+            }
+
+            .banner {
+                background-color:rgb(233, 255, 160);
+                height: 100px;
+            }
+
+            section {
+                float: left;
+                display: grid;
+                grid-template-columns: 1fr, 1fr;
+            }
+            }
+
+            @media screen and (min-width: 800px) {
+            body {
+                background-color: rgb(77, 91, 171);
+            }
+
+            img {
+                position: relative;
+            }
+
+            .banner {
+                background-color:rgb(233, 255, 160);
+                height: 100px;
+            }
+
+            section {
+                display: grid;
+                grid-template-columns: 1fr, 1fr, 1fr;
+            }
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class = "banner">BANNER</div>
+
+        <section style = "background-color: mediumpurple; color: lightblue;">
+            <h1>1</h1>
+            <img src = "mybeautifulwifeof500years.jpg">
+            <p> My wonderful sweet, succulent, beautiful, gorgeous, cakeroll, honey, sugar, cinnamon spice, opulent, elegant,
+                on top of the world, etc etc
+            </p>  
+        </section>
+
+        
+        <section style = "background-color: #bbb8c6; color: rgb(56, 36, 53); ">
+            <h1>2</h1>
+            <img src = "milliondollarbounty.png">
+            <p>Monstrous demonspawn that needs to be neutered and publicly executed during daylight</p>
+        </section>
+
+        
+        <section style = "background-color: #230008; color: red">
+            <h1>3</h1>
+            <img src = "evil force of man.jpg">
+            <p>Dedicated to the one character responsible for my failed english language speech</p>
+
+        </section>
+
+    </body>

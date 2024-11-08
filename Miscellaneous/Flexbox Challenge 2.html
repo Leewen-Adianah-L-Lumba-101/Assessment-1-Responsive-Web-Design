@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GRID 2</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                text-align: center;
+                font-size: 24px;
+            }
+
+            .container {
+                display: flex; 
+                flex-direction: column;
+            }
+
+            .item {
+                grid-area: nav;
+                height: 150px;
+                border: 1px solid black;
+            }
+
+            .item2 {
+                grid-area: main;
+                height: 200px;
+                border: 1px solid black;
+            }
+            
+            .item3 {
+                grid-area: rel;
+                height: 200px;
+                border: 1px solid black;
+            }
+
+            .item4 {
+                grid-area: ads;
+                height: 200px;
+                border: 1px solid black;
+            }
+            
+            .item5 {
+                grid-area: foot;
+                height: 150px;
+                border: 1px solid black;
+            }
+
+            @media screen and (max-width: 900px) and (min-width: 600px) {
+            .container {
+                display: grid;
+                height: 500px;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 100px, 100px, 100px, 100px;
+                grid-template-areas: 
+                'nav nav nav'
+                'main main rel'
+                'main main ads'
+                'foot foot foot';
+                }
+
+                .item3 {
+                    grid-area: main;
+                    border: none;
+                }
+
+                .item2 {
+                    grid-area: rel;
+                }
+
+                .item4 {
+                    grid-area: ads;
+                }
+            }
+
+            @media screen and (min-width: 901px) {
+                .container {
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+
+                .container > * {
+                    flex: 1 100%;
+                }
+
+                .item3 { 
+                    flex: 3 0px; 
+                    order: 2; 
+                }
+
+                .item2 { 
+                    flex: 1 0 0;
+                    /*Flex grow + Flex shrink + Flex basis*/
+                    order: 1; 
+                } 
+                
+                .item4 { 
+                    flex: 1 0 0;
+                    order: 3; 
+                }
+
+                .item5 {
+                    order: 4;
+                }
+            }
+
+
+        </style>
+    <body>
+        <div class = "container">
+            <div class = "item">
+                Navigation
+            </div>
+
+            <div class = "item2">
+                Related Links
+            </div>
+
+            <div class = "item3">
+                Main Content
+            </div>
+
+            <div class = "item4">
+                Ads
+            </div>
+
+            <div class = "item5">
+                Footer
+            </div>
+
+        </div>
+    </body>
+</html>

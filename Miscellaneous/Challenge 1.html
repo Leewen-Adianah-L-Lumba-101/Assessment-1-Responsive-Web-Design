@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name = "viewport" content = "width = device - width, initial-scale = 1.0">
+        <title>Challenge 1 (Media Queries)</title>
+        <style>
+            body {
+                background-color: whitesmoke;
+                color: forestgreen;
+                font-size: 50px;
+            }
+
+            h1 {
+                font-style: bold; 
+            }
+
+            p {
+                margin: 10px;
+            }
+
+            img {
+                max-width: 40%;
+                height: auto;
+            }
+
+            section {
+                text-align: center;
+                padding: 12px;
+                margin: 10px;
+            }
+
+            @media screen and (min-width: 500px) {
+                body {
+                    background-color: palevioletred;
+                    color: brown;
+                    font-size: 35px;
+                }
+
+                section {
+                    width: 46%;
+                    float: left;
+                }
+            }
+
+            @media screen and (max-width: 500px) {
+                body {
+                    background-color: darkslategray;
+                    color: white;
+                    font-size: 32px;
+                }
+                
+                section {
+                    width: 100%;
+                    float: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Challenge 1</h1>
+
+        <section style = "background-color: mediumpurple; color: lightblue;">
+            <h1>Wife</h1>
+            <img src = "mybeautifulwifeof500years.jpg">
+            <p> My wonderful sweet, succulent, beautiful, gorgeous, cakeroll, honey, sugar, cinnamon spice, opulent, elegant,
+                on top of the world, etc etc
+            </p>  
+        </section>
+
+        <section style = "background-color: #f30000; color: black; ">
+            <h1>Wife 2</h1>
+            <img src = "milliondollarbounty.png">
+            <p>Monstrous demonspawn that needs to be neutered and publicly executed during daylight</p>
+        </section>
+
+    </body>
+</html>
