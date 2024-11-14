@@ -27,10 +27,16 @@
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Lato", sans-serif;
   background-color: #070410;
   color: #070410;
+}
+
+h1 {
+  text-align: left;
+  font-size: 3em;
+  font-family: "Teko", sans-serif;
 }
 
 img {
@@ -114,12 +120,13 @@ button:hover {
 /* Main content container, including all the movies. */
 .maincontent {
   display: grid;
-  grid-template-rows: 450px 800px 450px 450px 450px 10px;
+  grid-template-rows: 480px 800px 470px 470px 470px 10px;
   grid-template-columns: repeat(2,1fr);
   row-gap: 48px;
   column-gap: 48px;
   padding-inline: 48px;
   margin-top: 48px;
+  padding-top: 48px;
   grid-row: 2/4;
   max-width: 900px;
   align-items: center;
@@ -176,12 +183,22 @@ I learned this in the second part.
 
 /* To add spaces inbetween areas in grid-template-areas, a dot is added to ascertain the 'space' */
 .mov1 {
-  grid-template-rows: 1fr 16px 1fr;
+  grid-template-rows: 1fr 80px 80px 1fr;
   grid-template-columns: repeat(3,1fr);
   grid-template-areas:
   "image image image"
-  ". . button"
+  "heading heading ."
+  "heading heading button"
   "info info button";
+}
+
+#heading {
+  grid-area: heading; 
+  line-height: 90%;
+  padding-top: 48px;
+  width: 100%;
+  font-size: 3em;
+  padding-inline: 16px;
 }
 
 #button1 {
@@ -202,14 +219,20 @@ I learned this in the second part.
 
 .mov2, .mov3 {
   display: grid; 
-  grid-template-rows: 200px 200px 250px 150px;
+  grid-template-rows: 200px 150px 50px 200px 100px;
+  row-gap: 16px;
   grid-template-columns: none;
   grid-template-areas: 
   "image"
   "image"
+  "heading"
   "info"
   "button";
   height: 800px;
+}
+
+.mov2 h1, .mov3 h1 {
+  padding-top: 48px;
 }
 
 .info2, .info3 {
@@ -222,8 +245,11 @@ I learned this in the second part.
 
 .mov4, .mov5, .mov6 {
   grid-template-columns: repeat(4,1fr);
-  grid-template-rows: repeat(2,1fr);
+  grid-template-rows: 50px 1fr 1fr 1fr;
+  row-gap: 16px;
   grid-template-areas: 
+  "image image heading heading"
+  "image image heading heading"
   "image image info info"
   "image image button button";
 }
@@ -244,11 +270,11 @@ I learned this in the second part.
 @media screen and (min-width: 721px) and (max-width: 1024px) {
 
   #logo {
-    font-size: 2em;
+    font-size: 3em;
   }
 
   .maincontent {
-    grid-template-rows: repeat(3,950px);
+    grid-template-rows: repeat(3,1100px);
     grid-template-columns: repeat(2,1fr);
     row-gap: 32px;
     column-gap: 32px;
@@ -280,25 +306,48 @@ I learned this in the second part.
 
   .mov1, .mov2, .mov3, .mov4, .mov5, .mov6 {
     display: grid; 
-    grid-template-rows: 200px 200px 250px 150px 150px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 190px 190px 200px 150px 200px 200px;
+    grid-template-columns: none;
     grid-template-areas: 
-    "image image"
-    "image image"
-    "info info"
-    "button button"
-    "button button";
-    height: 950px;
+    "image"
+    "image"
+    "heading"
+    "info"
+    "button"
+    "button";
+    height: 1100px;
+  }
+
+  .mov2, .mov3, .mov4, .mov5, .mov6 {
+    grid-template-rows: 180px 180px 170px 150px 200px 200px;
+    grid-template-columns: none;
+    grid-template-areas: 
+    "image"
+    "image"
+    "heading"
+    "info"
+    "button"
+    "button";
+    height: 1100px;
+  }
+
+  #heading {
+    width: 90%;
+    font-size: 3em;
+    padding-bottom: 16px;
+    align-self: first baseline;
   }
   
   .info1, .info2, .info3, .info4, .info5, .info6 {
     width: 90%;
     height: 70%;
     padding-top: 16px;
+    align-self: first baseline;
+
   }
   
   .img1 img, .img2 img, .img3 img, .img4 img, .img5 img, .img6 img {
-    height: 400px;
+    height: 380px;
   }
 
   /* In order to detect the line skip from the HTML code for 'WATCH NOW' the property 'white-space' is given 'pre-line' */
@@ -330,22 +379,36 @@ there are borders separating each movie, so I had to rewrite the direction of th
 */
 @media screen and (min-width: 360px) and (max-width: 720px) {
 
+  body {
+    overflow-x: hidden;
+  }
+
   .navigation { box-shadow: 0 16px 0px 0px #4DCCBD; }
 
   #genre1, #genre2, #genre3, #genre4 { display: none; }
 
   #logo {
     font-size: 2em;
+    margin-left: -16px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  #heading {
+    font-size: 2em;
   }
 
   .maincontent {
     padding-top: 16px;
-    grid-template-rows: repeat(6,800px);
+    grid-template-rows: repeat(6,820px);
     grid-template-columns: auto;
     row-gap: 16px;
     column-gap: 0;
     padding-inline: 0;
     margin-top: 0;
+    margin-right: 0;
     max-width: 900px;
     padding-bottom: 16px;
     box-shadow: 0 16px 0px 0px #4DCCBD;
@@ -361,15 +424,17 @@ there are borders separating each movie, so I had to rewrite the direction of th
     box-shadow: 0 16px 0px 0px #4DCCBD;
     grid-column: 1/2;
     display: grid; 
-    grid-template-rows: 200px 200px 200px 100px 100px;
+    grid-template-rows: 200px 200px 50px 130px 100px 100px;
+    row-gap: 16px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "image image"
     "image image"
+    "heading heading"
     "info info"
     "button button"
     "button button";
-    height: 800px;
+    height: 820px;
   }
   
   .info1, .info2, .info3, .info4, .info5, .info6 {
@@ -379,7 +444,7 @@ there are borders separating each movie, so I had to rewrite the direction of th
   }
   
   .img1 img, .img2 img, .img3 img, .img4 img, .img5 img, .img6 img {
-    height: 400px;
+    height: 420px;
   }
 
   /* To prevent the words 'WATCH NOW' from being separated, the line skip is not counted anymore by setting white-space
